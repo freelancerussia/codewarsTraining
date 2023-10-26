@@ -70,8 +70,30 @@ console.log(distanceBetweenPoints(new Point(3, 3), new Point(3, 3)))
 
 // (-10.2, 12.5), new Point(0.3, 14.7), 10.728001);
 //!-----------------------------------------------------------------------------------
-//!------------------TASK -----------------------------------------------------
+//!------------------TASK 5 -----------------------------------------------------\
+// вход------------>(3, [1,2,3,4,2,5]))  выход------------->[4, 5, 3]
+function fifo(n, referenceList) {
+   let resultArr = new Array(n).fill(-1);
+   let j = 0;
+   for (let i = 0; i < referenceList.length; i++) {
+      let el = referenceList[i];
+      if (j === n) j = 0;
+      if (!resultArr.includes(el)) {
+         resultArr[j] = el;
+         j++;
+      }
 
+      //j = (j + 1) % n; вмнсто if j === n ...
+   }
+   // if (resultArr.length < n) {
+   //    while (resultArr.length !== n) {
+   //       resultArr.push(-1);
+   //    }
+   // }
+   return resultArr;
+}
+
+console.log(fifo(3, [1, 2, 3, 4, 2, 5])); //[4, 5, 3]
 //!-----------------------------------------------------------------------------------
 //!------------------TASK -----------------------------------------------------
 
